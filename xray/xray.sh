@@ -4,7 +4,6 @@ GREEN="\033[32m"  # Success message
 YELLOW="\033[33m" # Warning message
 BLUE="\033[36m"   # Info message
 PLAIN='\033[0m'
-
 # 以下网站是随机从Google上找到的无广告小说网站，不喜欢请改成其他网址，以http或https开头
 # 搭建好后无法打开伪装域名，可能是反代小说网站挂了，请在网站留言，或者Github发issue，以便替换新的网站
 SITES=(
@@ -21,14 +20,11 @@ SITES=(
 	http://www.bequgexs.com/
 	http://www.tjwl.com/
 )
-
 CONFIG_FILE="/usr/local/etc/xray/config.json"
 OS=$(hostnamectl | grep -i system | cut -d: -f2)
-
 checkwarp(){
 	[[ -n $(wg 2>/dev/null) ]] && colorEcho $RED " 检测到WARP已打开，脚本中断运行" && colorEcho $YELLOW " 请关闭WARP之后再运行本脚本" && exit 1
 }
-
 V6_PROXY=""
 IP=$(curl -s4m8 https://ip.gs)
 [[ "$?" != "0" ]] && IP=$(curl -s6m8 https://ip.gs) && V6_PROXY="https://gh-proxy-misakano7545.koyeb.app/"
