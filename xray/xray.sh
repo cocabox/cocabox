@@ -1,5 +1,4 @@
 #!/bin/bash
-
 RED="\033[31m"    # Error message
 GREEN="\033[32m"  # Success message
 YELLOW="\033[33m" # Warning message
